@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.smartui'
+version = '1.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // SmartUI SDK
+    testImplementation 'io.github.lambdatest:lambdatest-java-sdk:1.0.7'
+
+    // Selenium
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.18.1'
+
+    // TestNG
+    testImplementation 'org.testng:testng:7.9.0'
+}
+
+test {
+    useTestNG() {
+        suites 'src/test/resources/testng.xml'
+    }
+}
